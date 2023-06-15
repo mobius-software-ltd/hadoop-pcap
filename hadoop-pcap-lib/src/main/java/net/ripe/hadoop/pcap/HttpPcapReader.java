@@ -5,8 +5,9 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.apache.http.Header;
 import org.apache.http.HttpClientConnection;
 import org.apache.http.HttpException;
@@ -33,7 +34,7 @@ import net.ripe.hadoop.pcap.packet.HttpPacket;
 import net.ripe.hadoop.pcap.packet.Packet;
 
 public class HttpPcapReader extends PcapReader{
-	public static final Log LOG = LogFactory.getLog(HttpPcapReader.class);
+	public static final Logger LOG = LogManager.getLogger(HttpPcapReader.class);
 
 	public static final int HTTP_PORT = 80;
 	public static final String HEADER_PREFIX = "header_";

@@ -3,14 +3,14 @@ package net.ripe.hadoop.pcap;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.math.BigDecimal;
-import java.math.MathContext;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
@@ -23,7 +23,7 @@ import net.ripe.hadoop.pcap.packet.Flow;
 import net.ripe.hadoop.pcap.packet.Packet;
 
 public class PcapReader implements Iterable<Packet> {
-	public static final Log LOG = LogFactory.getLog(PcapReader.class);
+	public static final Logger LOG = LogManager.getLogger(PcapReader.class);
 
 	public static final long MAGIC_NUMBER = 0xA1B2C3D4;
 	public static final int HEADER_SIZE = 24;

@@ -1,23 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.ripe.hadoop.pcap</groupId>
+	<groupId>com.mobius-software.pcap</groupId>
 	<artifactId>hadoop-pcap-root</artifactId>
-	<version>1.1</version>
+	<version>1.1-1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<parent>
+		<groupId>com.mobius-software</groupId>
+		<artifactId>mobius-public-parent</artifactId>
+		<version>1.0.9</version>
+	</parent>
+	
 	<modules>
 		<module>hadoop-pcap-lib</module>
-		<module>hadoop-pcap-serde</module>
 	</modules>
 
-	<build>
+	<properties>
+		<hadoop.version>3.3.5</hadoop.version>
+		<apache.http.version>4.5.13</apache.http.version>
+		<guava.version>19.0</guava.version>
+		<junit.version>4.11</junit.version>
+		<dnsjava.version>2.1.7</dnsjava.version>
+		<log4j2.version>2.19.0</log4j2.version>		
+	</properties>
+	
+	<build>		
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -31,6 +45,40 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>no-gpg</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.1.2</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -38,20 +86,8 @@
 				<artifactId>hadoop-pcap-lib</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>hadoop-pcap-serde</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<repositories>
-		<repository>
-			<id>cloudera-cdh-build</id>
-			<url>https://repository.cloudera.com/content/groups/cdh-build</url>
-		</repository>
-	</repositories>
 
 	<scm>
 		<connection>scm:git:git://github.com/RIPE-NCC/hadoop-pcap.git</connection>

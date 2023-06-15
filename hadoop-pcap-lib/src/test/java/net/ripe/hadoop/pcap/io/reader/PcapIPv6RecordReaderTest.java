@@ -9,8 +9,9 @@ import java.io.IOException;
 import net.ripe.hadoop.pcap.PcapReader;
 import net.ripe.hadoop.pcap.io.reader.PcapRecordReader;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -25,7 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PcapIPv6RecordReaderTest {
-	private static final Log LOG = LogFactory.getLog(PcapIPv6RecordReaderTest.class);
+	private static final Logger LOG = LogManager.getLogger(PcapIPv6RecordReaderTest.class);
 
 	private final File TEST_FILE = new File("src/test/resources/test-ipv6.pcap");
 
@@ -91,5 +92,10 @@ public class PcapIPv6RecordReaderTest {
 
 		@Override
 		public void progress() {}
+
+		@Override
+		public float getProgress() {
+			return 0;
+		}
 	}
 }

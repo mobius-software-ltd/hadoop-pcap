@@ -4,11 +4,6 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
-import net.ripe.hadoop.pcap.PcapReader;
-import net.ripe.hadoop.pcap.io.reader.PcapRecordReader;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -23,11 +18,16 @@ import org.apache.hadoop.mapred.InputSplit;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.RecordReader;
 import org.apache.hadoop.mapred.Reporter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import net.ripe.hadoop.pcap.PcapReader;
+import net.ripe.hadoop.pcap.io.reader.PcapRecordReader;
 
 public class PcapInputFormat extends FileInputFormat<LongWritable, ObjectWritable> {
 	static final String READER_CLASS_PROPERTY = "net.ripe.hadoop.pcap.io.reader.class";
 
-	public static final Log LOG = LogFactory.getLog(PcapInputFormat.class);
+	public static final Logger LOG = LogManager.getLogger(PcapInputFormat.class);
 
 	@Override
 	public RecordReader<LongWritable, ObjectWritable> getRecordReader(InputSplit split, JobConf config, Reporter reporter) throws IOException {

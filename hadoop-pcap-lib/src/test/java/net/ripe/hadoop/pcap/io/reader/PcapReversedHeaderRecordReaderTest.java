@@ -6,26 +6,25 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
-import net.ripe.hadoop.pcap.PcapReader;
-import net.ripe.hadoop.pcap.io.reader.PcapRecordReader;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.ObjectWritable;
+import org.apache.hadoop.mapred.Counters.Counter;
 import org.apache.hadoop.mapred.InputSplit;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.Reporter;
-import org.apache.hadoop.mapred.Counters.Counter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import net.ripe.hadoop.pcap.PcapReader;
+
 public class PcapReversedHeaderRecordReaderTest {
-	private static final Log LOG = LogFactory.getLog(PcapReversedHeaderRecordReaderTest.class);
+	private static final Logger LOG = LogManager.getLogger(PcapReversedHeaderRecordReaderTest.class);
 
 	private final File TEST_FILE = new File("src/test/resources/reversedtest.pcap");
 
@@ -91,5 +90,10 @@ public class PcapReversedHeaderRecordReaderTest {
 
 		@Override
 		public void progress() {}
+
+		@Override
+		public float getProgress() {
+			return 0;
+		}
 	}
 }
