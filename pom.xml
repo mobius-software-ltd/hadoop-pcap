@@ -90,10 +90,9 @@
 	</dependencyManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/RIPE-NCC/hadoop-pcap.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/RIPE-NCC/hadoop-pcap.git</developerConnection>
-	  <tag>1.1</tag>
-  </scm>
+		<connection>scm:git:git://github.com/mobius-software-ltd/hadoop-pcap.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:mobius-software-ltd/hadoop-pcap.git</developerConnection>	
+  	</scm>
 
 	<distributionManagement>
 		<repository>
