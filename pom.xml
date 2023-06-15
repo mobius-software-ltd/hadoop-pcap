@@ -90,9 +90,10 @@
 	</dependencyManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/mobius-software-ltd/hadoop-pcap.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:mobius-software-ltd/hadoop-pcap.git</developerConnection>	
-  	</scm>
+        <connection>scm:git:git://github.com/mobius-software-ltd/hadoop-pcap.git</connection>
+        <developerConnection>scm:git:git@github.com:mobius-software-ltd/hadoop-pcap.git</developerConnection>
+        <url>https://github.com/mobius-software-ltd/hadoop-pcap</url>
+    </scm>
 
 	<distributionManagement>
 		<repository>
