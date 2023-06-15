@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mobius-software.pcap</groupId>
 	<artifactId>hadoop-pcap-root</artifactId>
-	<version>1.1-2-SNAPSHOT</version>
+	<version>1.1-2</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -106,7 +106,7 @@
         <connection>scm:git:git://github.com/mobius-software-ltd/hadoop-pcap.git</connection>
         <developerConnection>scm:git:git@github.com:mobius-software-ltd/hadoop-pcap.git</developerConnection>
         <url>https://github.com/mobius-software-ltd/hadoop-pcap</url>
-      <tag>HEAD</tag>
+      <tag>1.1-2</tag>
   </scm>
 
 	<distributionManagement>
