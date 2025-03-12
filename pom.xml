@@ -21,7 +21,8 @@
 		<guava.version>19.0</guava.version>
 		<junit.version>4.11</junit.version>
 		<dnsjava.version>2.1.7</dnsjava.version>
-		<log4j2.version>2.19.0</log4j2.version>		
+		<log4j2.version>2.19.0</log4j2.version>	
+		<compiler.plugin.version>3.8.1</compiler.plugin.version>	
 	</properties>
 	
 	<build>		
