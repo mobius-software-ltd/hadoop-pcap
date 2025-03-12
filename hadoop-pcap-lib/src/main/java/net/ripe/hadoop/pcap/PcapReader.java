@@ -12,7 +12,7 @@ import java.util.Iterator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -601,7 +601,7 @@ public class PcapReader implements Iterable<Packet> {
 
 		@Override
 		public String toString() {
-			return Objects.toStringHelper(this.getClass()).add("seq", seq)
+			return MoreObjects.toStringHelper(this.getClass()).add("seq", seq)
 			                                              .add("len", payload.length)
 			                                              .toString();
 		}
@@ -633,7 +633,7 @@ public class PcapReader implements Iterable<Packet> {
 
 		@Override
 		public String toString() {
-			return Objects.toStringHelper(this.getClass()).add("offset", offset)
+			return MoreObjects.toStringHelper(this.getClass()).add("offset", offset)
 			                                              .add("len", payload.length)
 			                                              .toString();
 		}

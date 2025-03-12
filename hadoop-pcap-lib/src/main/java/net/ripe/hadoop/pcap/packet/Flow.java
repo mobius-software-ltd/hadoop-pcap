@@ -1,5 +1,6 @@
 package net.ripe.hadoop.pcap.packet;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 
@@ -31,7 +32,7 @@ public class Flow implements Comparable<Flow> {
 
 	@Override
 	public String toString() {
-		return Objects.toStringHelper(this.getClass()).add("src", src)
+		return MoreObjects.toStringHelper(this.getClass()).add("src", src)
 		                                              .add("srcPort", srcPort)
 		                                              .add("dst", dst)
 		                                              .add("dstPort", dstPort)
